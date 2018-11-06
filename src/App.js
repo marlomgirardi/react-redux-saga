@@ -7,6 +7,7 @@ import reducers from './reducers/index'
 import indexSaga from './sagas/index'
 
 import Info from './Info'
+import UserAgent from './UserAgent'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(reducers, applyMiddleware(sagaMiddleware))
@@ -17,6 +18,7 @@ const App = () => {
     <Provider store={store}>
       <div className="App">
         <Info />
+        <UserAgent />
       </div>
     </Provider>
   )

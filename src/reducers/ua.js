@@ -13,6 +13,20 @@ const ua = (state = INITIAL_STATE, action) => {
         error: false
       }
     }
+    case 'LOAD_DATA_UA_SUCCESS': {
+      return {
+        isFetching: false,
+        data: action.data,
+        error: false
+      }
+    }
+    case 'LOAD_DATA_UA_FAILURE': {
+      return {
+        isFetching: false,
+        data: [],
+        error: true
+      }
+    }
     default:
       return state
   }

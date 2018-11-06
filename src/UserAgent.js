@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadDataRequest } from './actions'
+import { loadDataUARequest } from './actions'
 
-class Info extends Component {
+class UserAgent extends Component {
   render() {
     return (
       <p>
-        <b>Info</b>: {this.props.data}
+        <b>UserAgent</b>: {this.props.data}
         {!this.props.isFetching &&
           !this.props.data.length && (
             <button onClick={() => this.props.loadData()}>
@@ -21,19 +21,19 @@ class Info extends Component {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.ip.isFetching,
-    data: state.ip.data,
-    error: state.ip.error
+    isFetching: state.ua.isFetching,
+    data: state.ua.data,
+    error: state.ua.error
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadData: () => dispatch(loadDataRequest())
+    loadData: () => dispatch(loadDataUARequest())
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Info)
+)(UserAgent)
